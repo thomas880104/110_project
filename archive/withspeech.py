@@ -101,21 +101,21 @@ def ryShow_recognition(x, y, recResult= None):
     score = font.render(f"{recResult}", True, (0, 255, 255))
     screen.blit(score, (x-50, y+50))
 
-def show_score(x, y):
+def show_score(x, y): #有
     score = font.render("Score : " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
 
 
-def game_over_text():
+def game_over_text(): #有
     over_text = over_font.render("GAME OVER", True, (255, 255, 255))
     screen.blit(over_text, (200, 250))
 
 
-def player(x, y):
+def player(x, y): #有
     screen.blit(playerImg, (x, y))
 
 
-def apple(x, y, i):
+def apple(x, y, i): #有
     screen.blit(appleImg[i], (x, y))
 
 def fire_bullet(x, y):
@@ -123,7 +123,7 @@ def fire_bullet(x, y):
     bullet_state = "fire"
     screen.blit(bulletImg, (x + 16, y + 10))
 
-def isCollision(appleX, appleY, bulletX, bulletY):
+def isCollision(appleX, appleY, bulletX, bulletY): #有
     distance = math.sqrt(math.pow(appleX - bulletX, 2) + (math.pow(appleY - bulletY, 2)))
     if distance < 27:
         return True
@@ -272,9 +272,9 @@ while running:
         fire_bullet(bulletX, bulletY)
         bulletY -= bulletY_change
 
-    history_label = font.render(ttl_history,True,(30,30,255))
-    screen.blit(history_label,(10,550))
-
+    history_label =font.render(ttl_history ,True , (30,30,255))
+    screen.blit(history_label, (10, 550))
+        
     player(playerX, playerY)
     show_score(textX, testY)
     ryShow_recognition(playerX, playerY, recResult= recResult)
