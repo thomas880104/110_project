@@ -383,14 +383,18 @@ def withspeech():
             if prob > recProbToConfirm:
                 if   y=='left'or y=='左':
                     playerX_change = -1
+                    playerY_change = 0
                     ck_history(y)
                 elif y== 'right'or y=='右':
                     playerX_change = +1
+                    playerY_change = 0
                     ck_history(y)
                 elif y== 'forward'or y=='前進':
+                    playerX_change = 0
                     playerY_change = -1
                     ck_history(y)            
                 elif y== 'backward'or y=='後退':
+                    playerX_change = 0
                     playerY_change = +1
                     ck_history(y)   
                 elif y in ['yes', 'on', 'go']:
@@ -407,7 +411,9 @@ def withspeech():
                     playerX_change = 0
                     playerY_change = 0
                 else:
-                    pass
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            running = False
         #> 語音辨識在此執行 ....
 
         # RGB = Red, Green, Blue
